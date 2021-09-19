@@ -5,11 +5,14 @@ import MovieComponent from './components/Moviecomponent'
 import axios from 'axios';
 
 
+const url = process.env.REACT_APP_OMDBAPI_BASE_URL
+const apiKey = process.env.REACT_APP_OMDBAPI_API_KEY
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const Header = styled.div`
+const Navbar = styled.div`
  display: flex;
  flex-direction: row;
  justify-content: space-between ;
@@ -78,7 +81,8 @@ const App: React.FC = () => {
 
   const fetchData = async (searchString: string) => {
    
-    const response = await axios.get(`${process.env.REACT_APP_OMDBAPI_BASE_URL}/?s=${searchString}&apikey=${process.env.REACT_APP_OMDBAPI_API_KEY}`)
+    // API call to omdbapi
+    const response = await axios.get(`${url}/?s=${searchString}&apikey=${apiKey}`)
     console.log(response);
     updateMovieList(response.data.Search)
   }
@@ -86,9 +90,12 @@ const App: React.FC = () => {
   
   // Debouncing
   const onTextChange = (e: React.ChangeEvent<any>) => {
+    // Clear all previous timeout so api call could be made once
     clearTimeout(timeoutId);
+    // update search query on every value typed to the input box
     updateSearchQuery(e.target.value);
     const timeout = window.setTimeout(() => fetchData(e.target.value ), 500);
+    // update timeout value on every input value
     updateTimeoutId(timeout)
   };
 
@@ -96,7 +103,7 @@ const App: React.FC = () => {
     <>
      <GlobalStyle />
         <Container>
-           <Header>
+           <Navbar>
              <AppName>
                <MovieImage src="/movie-icon.svg" />
                Movie App
@@ -107,7 +114,7 @@ const App: React.FC = () => {
                 value={searchQuery}  // 2 way binded
                 onChange={onTextChange}/>
              </SearchBox>
-           </Header>
+           </Navbar>
            <MovieListContainer>
               {movieList?.length
                 ? movieList.map((movie, index) => <MovieComponent key={index} movie={movie} />)

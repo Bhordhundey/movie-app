@@ -18,7 +18,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### FIRST STEP
 Create a .env file on root folder and add this credentials:
 
-REACT_APP_OMDBAPI_BASE_URL=https://www.omdbapi.com
+REACT_APP_OMDBAPI_BASE_URL=https://www.omdbapi.com  
 REACT_APP_OMDBAPI_API_KEY={ADD-API-KEY-HERE}
 
 ## Note
