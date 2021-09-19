@@ -2,6 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### FIRST STEP
+Create a .env file on root folder and add this credentials:
+
+REACT_APP_OMDBAPI_BASE_URL=https://www.omdbapi.com  
+REACT_APP_OMDBAPI_API_KEY={ADD-API-KEY-HERE}
+
+## Note
+REACT_APP_OMDBAPI_API_KEY value is Api key generated from 'http://www.omdbapi.com/apikey.aspx'
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -14,15 +23,6 @@ To install all dependencies
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-
-### FIRST STEP
-Create a .env file on root folder and add this credentials:
-
-REACT_APP_OMDBAPI_BASE_URL=https://www.omdbapi.com  
-REACT_APP_OMDBAPI_API_KEY={ADD-API-KEY-HERE}
-
-## Note
-REACT_APP_OMDBAPI_API_KEY value is Api key generated from 'http://www.omdbapi.com/apikey.aspx'
 
 ### APIs Used
 [The Open Movie Database APIs](http://www.omdbapi.com/)
