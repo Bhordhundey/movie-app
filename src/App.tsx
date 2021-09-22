@@ -12,7 +12,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const Navbar = styled.div`
+const Header = styled.div`
  display: flex;
  flex-direction: row;
  justify-content: space-between ;
@@ -71,6 +71,7 @@ const MovieListContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;  // Move component to next row when screen can't contain the list
   padding: 30px;
+  gap: 25px;
   justify-content: space-evenly;
 `;
  
@@ -103,7 +104,7 @@ const App: React.FC = () => {
     <>
      <GlobalStyle />
         <Container>
-           <Navbar>
+           <Header>
              <AppName>
                <MovieImage src="/movie-icon.svg" />
                Movie App
@@ -114,7 +115,7 @@ const App: React.FC = () => {
                 value={searchQuery}  // 2 way binded
                 onChange={onTextChange}/>
              </SearchBox>
-           </Navbar>
+           </Header>
            <MovieListContainer>
               {movieList?.length
                 ? movieList.map((movie, index) => <MovieComponent key={index} movie={movie} />)

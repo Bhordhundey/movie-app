@@ -19,6 +19,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "start:app": "yarn build && pm2 start  node_modules/react-scripts/scripts/start.js --name 'movie-app'",
+    "restart:app": "yarn build && pm2 restart  node_modules/react-scripts/scripts/start.js --name 'movie-app'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
